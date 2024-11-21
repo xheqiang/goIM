@@ -1,0 +1,14 @@
+xhq001
+ws://127.0.0.1:8000/v1/user/chat?userId=1&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE3MzU0NDU0MzQsImlzcyI6InlrIn0.5MKCErvi3bmOSD4tIGFizSAS8jopHZzNsqGzKkfXOkQ
+
+xhq002
+ws://127.0.0.1:8000/v1/user/chat?userId=2&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE3MzU0NDU1MDksImlzcyI6InlrIn0.b9PThMRwB6OhHF7mhmeYIrNznqHoGzDnXl-bDBpOIuU
+
+
+
+{"FromId":1,"TargetId":2,"Type":1,"Content":"在干嘛","Media":1,"CreatedAt":"2024-11-11 00:00:00"}
+
+{"from_id":1,"target_id":2,"type":1,"content":"在干嘛","media":1,"created_at":"2024-11-11 00:00:00"}
+
+// 针对 Message 的 CreatedAt 类型是 time.Time 需要发送这种格式 否则无法解析
+{"from_id":1,"target_id":2,"type":1,"content":"在干嘛","media":1,"created_at":"2024-11-11T00:00:00Z"}
