@@ -73,3 +73,17 @@ func JoinGroup(ownerId uint, gName string) (int, error) {
 	}
 	return 0, nil
 }
+
+func GetGroupUsers(groupId uint) (*[]uint, error) {
+	relation := []models.Relation{}
+	if tx := global.DB.Where("target_id = ?1 AND type = ?2", groupId, 2).Find(&relation); tx.RowsAffected == 0 {
+		return nil, errors.New("未找到群成员信息")
+	}
+
+	userIds := make([]uint, 0)
+	for _, v := range relation {
+		userId := v.OwnerId
+		userIds = append(userIds, userId)
+	}
+	return &userIds, nil
+}
